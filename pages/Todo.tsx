@@ -1,8 +1,20 @@
+import { useState } from 'react'
+import Pagination from '../components/Pagination'
 import { fetchApi } from '../components/redux/reducer'
 import { TypeData } from '../components/Types'
+import InputText from  '../components/InputText'
 
 const Todo = () => {
   const { data, isLoading, error } = fetchApi.useGetDataFetchQuery('')
+
+  // pagination
+  const [currentPage, setCurrentPage] = useState(1)
+  const [postsPerPage] = useState(10)
+  // pagination
+  const indexOfLastPost = currentPage * postsPerPage
+  const indexOfFirstPost = indexOfLastPost - postsPerPage
+  const currentPosts = data?.slice(indexOfFirstPost, indexOfLastPost)
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
 
   if (isLoading) {
     return <h1>Loading...</h1>
@@ -12,13 +24,30 @@ const Todo = () => {
   }
   return (
     <div>
+      <div>
+      <InputText />
+      </div>
       <ul>
-        {data?.map((el: TypeData) => (
+        {currentPosts?.map((el: TypeData) => (
           <ul className='list-disc' key={el.id}>
-            <li>{el.title}</li>
+            <div className='flex justify-between  '>
+              <li className='hover:text-fuchsia-400'>{el.title}</li>
+              <div className='text-xl first:right-2  '>
+                <button className='mx-3 hover:text-emerald-400 '>toggle</button>
+                <button className='mx-3 hover:text-sky-500 '>edit</button>
+                <button className='mx-3 hover:text-red-500 '>delete</button>
+              </div>
+            </div>
           </ul>
         ))}
       </ul>
+      <div>
+        <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={data.length}
+          paginate={paginate}
+        />
+      </div>
     </div>
   )
 }
