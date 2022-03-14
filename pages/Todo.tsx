@@ -2,10 +2,12 @@ import { useState } from 'react'
 import Pagination from '../components/Pagination'
 import { fetchApi } from '../components/redux/reducer'
 import { TypeData } from '../components/Types'
-import InputText from  '../components/InputText'
+import InputText from '../components/InputText'
 
 const Todo = () => {
   const { data, isLoading, error } = fetchApi.useGetDataFetchQuery('')
+
+  // const {} = fetchApi
 
   // pagination
   const [currentPage, setCurrentPage] = useState(1)
@@ -25,13 +27,19 @@ const Todo = () => {
   return (
     <div>
       <div>
-      <InputText />
+        <InputText />
       </div>
       <ul>
         {currentPosts?.map((el: TypeData) => (
           <ul className='list-disc' key={el.id}>
             <div className='flex justify-between  '>
-              <li className='hover:text-fuchsia-400'>{el.title}</li>
+              <li
+                className={
+                  el.completed ? 'hover:text-fuchsia-400' : 'text-red-300'
+                }
+              >
+                {el.completed.toString()}-{el.title}
+              </li>
               <div className='text-xl first:right-2  '>
                 <button className='mx-3 hover:text-emerald-400 '>toggle</button>
                 <button className='mx-3 hover:text-sky-500 '>edit</button>
