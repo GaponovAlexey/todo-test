@@ -3,7 +3,8 @@ import { DbTypePosts } from '../Types'
 // const BaseApi = 'https://jsonplaceholder.typicode.com'
 // const BaseApi = 'http://localhost:5000/'
 // const BaseApi = 'https://todo-test-pi.vercel.app/api/'
-const BaseApi = 'http://localhost:3000/api/'
+// const BaseApi = 'http://localhost:3000/api/'
+const BaseApi = 'https://todo-test-pi.vercel.app/api/'
 
 export const fetchApi = createApi({
   reducerPath: 'fetch/api',
