@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { DbType, TypeData } from '../Types'
 // const BaseApi = 'https://jsonplaceholder.typicode.com'
-const BaseApi = 'http://localhost:5000/'
+// const BaseApi = 'http://localhost:5000/'
+const BaseApi = 'https://todo-test-pi.vercel.app/api/hello'
 
 export const fetchApi = createApi({
   reducerPath: 'fetch/api',
