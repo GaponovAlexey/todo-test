@@ -8,9 +8,12 @@ export const fetchApi = createApi({
   tagTypes: ['fetch'],
   baseQuery: fetchBaseQuery({ baseUrl: BaseApi }),
   endpoints: (builder) => ({
-    getDataFetch: builder.query({
+    getDataFetch: builder.query<DbType[], void>({
       query: () => `/posts/`,
-      providesTags: () => ['fetch'],
+      providesTags: (result, error, arg) =>
+        result
+          ? [...result.map(({ id }) => ({ type: 'fetch' as const, id })), 'fetch']
+          : ['fetch'],
     }),
     pathDataFetch: builder.mutation({
       query: (post) => ({
@@ -18,7 +21,7 @@ export const fetchApi = createApi({
         method: 'POST',
         body: post,
       }),
-      invalidatesTags: ['fetch'],
+      invalidatesTags:(result, error, arg) => [{ type: 'fetch', id: arg.id }],
     }),
   }),
 })

@@ -5,17 +5,18 @@ import { DbType, TypeData } from '../components/Types'
 import InputText from '../components/InputText'
 
 const Todo = () => {
-  const { data, isLoading, error } = fetchApi.useGetDataFetchQuery('')
+  const { data, isLoading, error } = fetchApi.useGetDataFetchQuery()
   const [corectData, {}] = fetchApi.usePathDataFetchMutation()
-  // const {} = fetchApi
 
   // pagination
   const [currentPage, setCurrentPage] = useState(1)
   const [postsPerPage, serpostsPerPage] = useState(10)
   // pagination
+
   const indexOfLastPost = currentPage * postsPerPage
   const indexOfFirstPost = indexOfLastPost - postsPerPage
   const currentPosts = data?.slice(indexOfFirstPost, indexOfLastPost)
+
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
 
   if (isLoading) {
@@ -44,13 +45,11 @@ const Todo = () => {
         ))}
       </ul>
       <div>
-        <div>
-          <Pagination
-            paginate={paginate}
-            totalPosts={data.length}
-            postsPerPage={postsPerPage}
-          />
-        </div>
+        <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={data.length}
+          paginate={paginate}
+        />
       </div>
     </div>
   )
