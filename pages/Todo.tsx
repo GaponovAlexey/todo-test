@@ -1,17 +1,17 @@
 import { useState } from 'react'
 import Pagination from '../components/Pagination'
 import { fetchApi } from '../components/redux/reducer'
-import { dbType, TypeData } from '../components/Types'
+import { DbType, TypeData } from '../components/Types'
 import InputText from '../components/InputText'
 
 const Todo = () => {
   const { data, isLoading, error } = fetchApi.useGetDataFetchQuery('')
-
+  const [corectData, {}] = fetchApi.usePathDataFetchMutation()
   // const {} = fetchApi
 
   // pagination
   const [currentPage, setCurrentPage] = useState(1)
-  const [postsPerPage] = useState(5)
+  const [postsPerPage, serpostsPerPage] = useState(10)
   // pagination
   const indexOfLastPost = currentPage * postsPerPage
   const indexOfFirstPost = indexOfLastPost - postsPerPage
@@ -27,10 +27,10 @@ const Todo = () => {
   return (
     <div>
       <div>
-        <InputText />
+        <InputText corectData={corectData} />
       </div>
       <ul>
-        {currentPosts?.map((el: dbType) => (
+        {currentPosts?.map((el: DbType) => (
           <ul className='list-disc' key={el.id}>
             <div className='flex justify-between  '>
               <li>-{el.title}</li>

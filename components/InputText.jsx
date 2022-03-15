@@ -1,9 +1,12 @@
 import { useState } from 'react'
 
-const InputText = () => {
-  const [valueText, setvalueText] = useState()
+const InputText = ({ corectData }) => {
+  const [valueText, setvalueText] = useState('')
 
-  const handlerSubmit = () => {}
+  const handlerSubmit = async () => {
+    await corectData({ title: valueText, body: valueText })
+    console.log(valueText)
+  }
 
   return (
     <div className='ml-[20%] '>
@@ -13,7 +16,9 @@ const InputText = () => {
         value={valueText}
         onChange={(e) => setvalueText(e.target.value)}
       />
-      <button className='ml-2'>add</button>
+      <button onClick={() => handlerSubmit()} className='ml-2'>
+        add
+      </button>
     </div>
   )
 }
