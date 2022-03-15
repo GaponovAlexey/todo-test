@@ -9,3 +9,7 @@ export interface DbType {
   title: string
   body: string
 }
+
+export interface DbTypePosts {
+  posts: DbType[]
+}

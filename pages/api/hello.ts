@@ -1,13 +1,26 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { DbType, DbTypePosts } from '../../components/Types'
 
-type Data = {
-  name: string
+const data: DbTypePosts = {
+  posts: [
+    {
+      id: 1,
+      title: 'json-server',
+      body: 'typicode',
+    },
+    {
+      id: 2,
+      title: 'json-server1',
+      body: 'typicode',
+    },
+  ],
 }
+
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<DbTypePosts>
 ) {
-  res.status(200).json({ name: 'John Doe' })
+  res.status(200).json(data)
 }
