@@ -5,7 +5,7 @@ import { TypeData } from '../components/Types'
 import InputText from '../components/InputText'
 
 const Todo = () => {
-  const { data, isLoading, error } = fetchApi.useGetDataFetchQuery('')
+  const { data, isLoading, error,  } = fetchApi.useGetDataFetchQuery('')
 
   // const {} = fetchApi
 
