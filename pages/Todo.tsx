@@ -7,6 +7,8 @@ import { NextPage } from 'next'
 
 const Todo: NextPage = (): any => {
   const { data, isLoading, error } = fetchApi.useGetDataFetchQuery()
+  console.log(data);
+  
   const [corectData, {}] = fetchApi.usePathDataFetchMutation()
 
   // pagination
