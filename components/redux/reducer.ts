@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { DbType, DbTypePosts, newDbTypePosts, TypeData } from '../Types'
+import { DbTypePosts } from '../Types'
 // const BaseApi = 'https://jsonplaceholder.typicode.com'
 // const BaseApi = 'http://localhost:5000/'
 // const BaseApi = 'https://todo-test-pi.vercel.app/api/'
@@ -20,7 +20,7 @@ export const fetchApi = createApi({
         method: 'POST',
         body: post,
       }),
-      invalidatesTags: (result, error, arg) => [{ type: 'fetch', id: arg.id }],
+      invalidatesTags: ['fetch'],
     }),
   }),
 })
