@@ -3,8 +3,9 @@ import Pagination from '../components/Pagination'
 import { fetchApi } from '../components/redux/reducer'
 import { DbType, TypeData } from '../components/Types'
 import InputText from '../components/InputText'
+import { NextPage } from 'next'
 
-const Todo = () => {
+const Todo: NextPage = (): any => {
   const { data, isLoading, error } = fetchApi.useGetDataFetchQuery()
   const [corectData, {}] = fetchApi.usePathDataFetchMutation()
 

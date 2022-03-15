@@ -5,7 +5,7 @@ const Pagination: NextPage<{
   postsPerPage: number
   totalPosts: number
   paginate: (number: number) => number
-}> = ({ postsPerPage, totalPosts, paginate }) => {
+}> = ({ postsPerPage, totalPosts, paginate }): any => {
   const pageNumbers = []
 
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
