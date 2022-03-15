@@ -48,7 +48,7 @@ const Todo: NextPage = (): any => {
       <div>
         <Pagination
           postsPerPage={postsPerPage}
-          totalPosts={data.length}
+          totalPosts={data?.length as number }
           paginate={paginate}
         />
       </div>
