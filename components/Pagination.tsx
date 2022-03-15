@@ -4,7 +4,7 @@ import React from 'react'
 const Pagination: NextPage = ({ postsPerPage, totalPosts, paginate }: any) => {
   const pageNumbers = []
 
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+  for (let i = 1; i <= (totalPosts / postsPerPage); i++) {
     pageNumbers.push(i)
   }
 
