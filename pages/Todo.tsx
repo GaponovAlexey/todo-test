@@ -5,9 +5,8 @@ import { DbType, TypeData } from '../components/Types'
 import InputText from '../components/InputText'
 import { NextPage } from 'next'
 
-const Todo: NextPage = (): any => {
+const Todo: NextPage = () => {
   const { data, isLoading, error } = fetchApi.useGetDataFetchQuery()
-  console.log(data);
   
   const [corectData, {}] = fetchApi.usePathDataFetchMutation()
 
@@ -18,7 +17,7 @@ const Todo: NextPage = (): any => {
 
   const indexOfLastPost = currentPage * postsPerPage
   const indexOfFirstPost = indexOfLastPost - postsPerPage
-  const currentPosts = data?.slice(indexOfFirstPost, indexOfLastPost)
+  const currentPosts = data?.posts?.slice(indexOfFirstPost, indexOfLastPost)
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
 
@@ -50,7 +49,7 @@ const Todo: NextPage = (): any => {
       <div>
         <Pagination
           postsPerPage={postsPerPage}
-          totalPosts={data?.length as number }
+          totalPosts={data?.posts?.length as number }
           paginate={paginate}
         />
       </div>

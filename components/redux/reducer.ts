@@ -1,28 +1,26 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { DbType, TypeData } from '../Types'
+import { DbType, DbTypePosts, newDbTypePosts, TypeData } from '../Types'
 // const BaseApi = 'https://jsonplaceholder.typicode.com'
 // const BaseApi = 'http://localhost:5000/'
-const BaseApi = 'https://todo-test-pi.vercel.app/api/'
+// const BaseApi = 'https://todo-test-pi.vercel.app/api/'
+const BaseApi = 'http://localhost:3000/api/'
 
 export const fetchApi = createApi({
   reducerPath: 'fetch/api',
   tagTypes: ['fetch'],
   baseQuery: fetchBaseQuery({ baseUrl: BaseApi }),
   endpoints: (builder) => ({
-    getDataFetch: builder.query<DbType[], void>({
+    getDataFetch: builder.query<DbTypePosts, void>({
       query: () => `/hello/`,
-      providesTags: (result, error, arg) =>
-        result
-          ? [...result.map(({ id }) => ({ type: 'fetch' as const, id })), 'fetch']
-          : ['fetch'],
+      providesTags: () => ['fetch'],
     }),
-    pathDataFetch: builder.mutation({
+    pathDataFetch: builder.mutation<DbTypePosts, void>({
       query: (post) => ({
         url: './hello',
         method: 'POST',
         body: post,
       }),
-      invalidatesTags:(result, error, arg) => [{ type: 'fetch', id: arg.id }],
+      invalidatesTags: (result, error, arg) => [{ type: 'fetch', id: arg.id }],
     }),
   }),
 })
