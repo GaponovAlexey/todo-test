@@ -1,17 +1,17 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { TypeData } from '../Types'
-const BaseApi = 'https://jsonplaceholder.typicode.com'
+import { dbType, TypeData } from '../Types'
+// const BaseApi = 'https://jsonplaceholder.typicode.com'
+const BaseApi = 'http://localhost:5000'
 
 export const fetchApi = createApi({
   reducerPath: 'pokemonApi',
   baseQuery: fetchBaseQuery({ baseUrl: BaseApi }),
-  endpoints: (builder) => ({
-    getDataFetch: builder.query<TypeData[], string>({
-      query: () => `/todos`,
+  endpoints: (b) => ({
+    getDataFetch: b.query<dbType[], string>({
+      query: () => `/posts`,
     }),
     // addDataFetch: builder.mutation({
     //   query: () => '/todos'
     // })
   }),
 })
-

@@ -4,3 +4,8 @@ export interface TypeData {
   title: string;
   completed: boolean;
 }
+export interface dbType {
+  id: number;
+  title: string;
+  body: string;
+}
