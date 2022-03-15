@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import React from 'react'
 
-const Pagination: NextPage = ({ postsPerPage, totalPosts, paginate }: any) => {
+const Pagination: NextPage = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumbers = []
 
   for (let i = 1; i <= (totalPosts / postsPerPage); i++) {

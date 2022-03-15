@@ -44,11 +44,13 @@ const Todo = () => {
         ))}
       </ul>
       <div>
-        <Pagination
-          postsPerPage={postsPerPage}
-          totalPosts={data.length}
-          paginate={paginate}
-        />
+        <div>
+          <Pagination
+            paginate={paginate}
+            totalPosts={data.length}
+            postsPerPage={postsPerPage}
+          />
+        </div>
       </div>
     </div>
   )
