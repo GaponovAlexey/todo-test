@@ -4,7 +4,7 @@ import React from 'react'
 const Pagination: NextPage<{
   postsPerPage: number
   totalPosts: number
-  paginate: (number: number) => number
+  paginate: (number: number) => void
 }> = ({ postsPerPage, totalPosts, paginate }): any => {
   const pageNumbers = []
 
