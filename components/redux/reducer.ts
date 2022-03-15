@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { DbType, TypeData } from '../Types'
 // const BaseApi = 'https://jsonplaceholder.typicode.com'
 // const BaseApi = 'http://localhost:5000/'
-const BaseApi = 'https://todo-test-pi.vercel.app/api/hello'
+const BaseApi = 'https://todo-test-pi.vercel.app/api/'
 
 export const fetchApi = createApi({
   reducerPath: 'fetch/api',
@@ -10,7 +10,7 @@ export const fetchApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: BaseApi }),
   endpoints: (builder) => ({
     getDataFetch: builder.query<DbType[], void>({
-      query: () => `/posts/`,
+      query: () => `/hello/`,
       providesTags: (result, error, arg) =>
         result
           ? [...result.map(({ id }) => ({ type: 'fetch' as const, id })), 'fetch']
@@ -18,7 +18,7 @@ export const fetchApi = createApi({
     }),
     pathDataFetch: builder.mutation({
       query: (post) => ({
-        url: './posts',
+        url: './hello',
         method: 'POST',
         body: post,
       }),
