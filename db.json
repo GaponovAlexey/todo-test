@@ -1,69 +1,28 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "body": "typicode"
-    },
-    {
       "id": 2,
       "title": "json-server1",
-      "body": "typicode"
+      "body": "typicode",
+      "toggle": false
     },
     {
-      "id": 3,
-      "title": "json-server2",
-      "body": "typicode"
+      "title": "1111",
+      "body": "12312312",
+      "toggle": false,
+      "id": 3
     },
     {
-      "title": "111",
-      "body": "111",
+      "title": "daaa",
+      "body": "123",
+      "toggle": false,
       "id": 4
     },
     {
-      "title": "111222",
-      "body": "111222",
+      "title": "daa",
+      "body": "da",
+      "toggle": true,
       "id": 5
-    },
-    {
-      "title": "dawd",
-      "body": "dawd",
-      "id": 6
-    },
-    {
-      "title": "123",
-      "body": "123",
-      "id": 7
-    },
-    {
-      "title": "123aaaa",
-      "body": "123aaaa",
-      "id": 8
-    },
-    {
-      "title": "s111",
-      "body": "s111",
-      "id": 9
-    },
-    {
-      "title": "s111",
-      "body": "s111",
-      "id": 10
-    },
-    {
-      "title": "s111",
-      "body": "s111",
-      "id": 11
-    },
-    {
-      "title": "s111",
-      "body": "s111",
-      "id": 12
-    },
-    {
-      "title": "s111",
-      "body": "s111",
-      "id": 13
     }
   ]
 }

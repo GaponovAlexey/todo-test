@@ -4,7 +4,7 @@ const InputText = ({ corectData }) => {
   const [valueText, setvalueText] = useState('')
 
   const handlerSubmit = async () => {
-    await corectData({ title: valueText, body: valueText })
+    await corectData({ title: valueText, body: valueText, toggle: false })
     console.log(valueText)
   }
 
