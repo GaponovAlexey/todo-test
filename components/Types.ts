@@ -12,4 +12,5 @@ export interface DbType {
 
 export interface DbTypePosts {
   posts: DbType[]
+  slice?: any
 }
